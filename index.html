@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Поздравляем!</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff9e6;
+  font-family: sans-serif;
+  overflow: hidden;
+  flex-direction: column;
+  text-align: center;
+}
+h1 {
+  font-size: 2.5em;
+  color: #007b00;
+  margin-bottom: 30px;
+}
+button {
+  font-size: 1.2em;
+  padding: 15px 30px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background-color: #ffdd33;
+}
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  top: 0;
+  animation: fall 3s linear infinite;
+  opacity: 0.8;
+}
+@keyframes fall {
+  0% {transform: translateY(-10px) rotate(0deg);}
+  100% {transform: translateY(100vh) rotate(360deg);}
+}
+</style>
+</head>
+<body>
+<h1>🎉 Вы выиграли 100 миллионов рублей! 🎉</h1>
+<button onclick="alert('Поздравляем! Деньги уже на вашем счёте! 💰')">Забрать приз</button>
+
+<script>
+for(let i=0;i<100;i++){
+  let c=document.createElement('div');
+  c.className='confetti';
+  c.style.left=Math.random()*100+'vw';
+  c.style.backgroundColor=`hsl(${Math.random()*360},80%,60%)`;
+  c.style.animationDuration=2+Math.random()*3+'s';
+  c.style.width=5+Math.random()*10+'px';
+  c.style.height=c.style.width;
+  document.body.appendChild(c);
+}
+</script>
+</body>
+</html>
